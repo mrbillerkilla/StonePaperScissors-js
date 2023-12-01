@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+<img onclick="schaar('schaar')" id="schaar" src="../schaar.png" alt="papier" style="width: 90px; height: 90px; position: absolute; left: auto;">
+<img onclick="papier('papier')" id="papier" src="../papier.png" alt="schaar" style="width: 90px; height: 90px; position: absolute; left: auto; left: 150px;">
+<img onclick="steen('steen')" id="steen" src="../steen.png" alt="steen" style="width: 90px; height: 90px; position: absolute; left: auto; left: 290px;">
+<!-- <button id="schaar" onclick="schaar('schaar')">schaar</button>
+<button id="papier" onclick="papier('papier')">papier</button>
+<button id="steen" onclick="steen('steen')">steen</button> -->
+<div class="gelijkspel" id="gelijkspel"></div>
+<div id="gewonnen" class="gewonnen"></div>
+<div id="verloren" class="verloren"></div>
+<div class="tekstbot" id="tekstbot"></div>
+<script>
+function schaar(gebruikerA) {
+  //teksten worden opgehaald
+  let gewonnenElement = document.querySelector("#gewonnen");
+  let verlorenElement = document.querySelector("#verloren");
+  let gelijkspelElement = document.querySelector("#gelijkspel");
+  let tekstbotElement = document.querySelector("#tekstbot");
+  gewonnenElement.innerHTML = ` `;
+  verlorenElement.innerHTML = "";
+  gelijkspelElement.innerHTML = "";
+  tekstbotElement.innerHTML = "";
+  //waardes worden verwerkt in een array
+  const schaar = "schaar";
+  const papier = "papier";
+  const steen = "steen";
+  const waardes = [schaar, papier, steen];
+  //waardes worden randomized
+  let randomtegenstander = Math.floor(Math.random() * waardes.length);
+  tekstbotElement.innerHTML = waardes[randomtegenstander];
+  //random waardes worden weergegeven in de browser
+  let tegenstanderA = waardes[randomtegenstander];
+  // als schaar en papier worden vergeleken wint de gebruiker 
+   if (gebruikerA === schaar && tegenstanderA === papier) {
+    gewonnenElement.innerHTML = "Gefeliciteerd! Je hebt gewonnen!";
+  //schaar verliest tegen steen
+  } else if (gebruikerA === schaar && tegenstanderA === steen) {
+  verlorenElement.innerHTML = "Helaas, je hebt verloren.";
+  }
+  //als tegenstander ook schaar heeft is het gelijkspel
+  else if(gebruikerA === tegenstanderA) {
+    gelijkspelElement.innerHTML = "Gelijkspel!";
+  }
+}
+
+function papier(gebruikerB){
+//teksten worden opgehaald
+let gewonnenElement = document.querySelector("#gewonnen");
+  let verlorenElement = document.querySelector("#verloren");
+  let gelijkspelElement = document.querySelector("#gelijkspel");
+  let tekstbotElement = document.querySelector("#tekstbot");
+  gewonnenElement.innerHTML = ` `;
+  verlorenElement.innerHTML = "";
+  gelijkspelElement.innerHTML = "";
+  tekstbotElement.innerHTML = "";
+  //waardes worden verwerkt in een array
+  const schaar = "schaar";
+  const papier = "papier";
+  const steen = "steen";
+  const waardes = [schaar, papier, steen];
+  //waardes worden randomized
+  let randomtegenstander = Math.floor(Math.random() * waardes.length);
+  tekstbotElement.innerHTML = waardes[randomtegenstander];
+  //random waardes worden weergegeven in de browser
+  let tegenstanderA = waardes[randomtegenstander];
+  // als schaar en papier worden vergeleken wint de gebruiker 
+   if (gebruikerB === papier && tegenstanderA === steen) {
+    gewonnenElement.innerHTML = "Gefeliciteerd! Je hebt gewonnen!";
+  //schaar verliest tegen steen
+  } else if (gebruikerB === papier && tegenstanderA === schaar) {
+    verlorenElement.innerHTML = "Helaas, je hebt verloren.";
+  }
+  //als tegenstander ook schaar heeft is het gelijkspel
+  else if(gebruikerB === tegenstanderA) {
+    gelijkspelElement.innerHTML = "Gelijkspel!";
+  }
+}
+function steen(gebruikerC){
+//teksten worden opgehaald
+let gewonnenElement = document.querySelector("#gewonnen");
+  let verlorenElement = document.querySelector("#verloren");
+  let gelijkspelElement = document.querySelector("#gelijkspel");
+  let tekstbotElement = document.querySelector("#tekstbot");
+  gewonnenElement.innerHTML = ` `;
+  verlorenElement.innerHTML = "";
+  gelijkspelElement.innerHTML = "";
+  tekstbotElement.innerHTML = "";
+  //waardes worden verwerkt in een array
+  const schaar = "schaar";
+  const papier = "papier";
+  const steen = "steen";
+  const waardes = [schaar, papier, steen];
+  //waardes worden randomized
+  let randomtegenstander = Math.floor(Math.random() * waardes.length);
+  tekstbotElement.innerHTML = waardes[randomtegenstander];
+  //random waardes worden weergegeven in de browser
+  let tegenstanderA = waardes[randomtegenstander];
+  // als schaar en papier worden vergeleken wint de gebruiker 
+   if (gebruikerC === steen && tegenstanderA === schaar) {
+    gewonnenElement.innerHTML = "Gefeliciteerd! Je hebt gewonnen!";
+  //schaar verliest tegen steen
+  } else if (gebruikerC === steen && tegenstanderA === papier) {
+    verlorenElement.innerHTML = "Helaas, je hebt verloren.";
+  }
+  //als tegenstander ook schaar heeft is het gelijkspel
+  else if(gebruikerC === tegenstanderA) {
+    gelijkspelElement.innerHTML = "Gelijkspel!";
+  }
+}
+</script>
+<style>    
+
+.gewonnen {
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  top: 100px;
+  background-color: beige;
+
+}
+.gelijkspel{
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  top: 350px;
+  background-color: beige;
+
+}
+.verloren{
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  top: 200px;
+  background-color: beige;
+
+}
+.tekstbot{
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  top: 100px;
+  left: 500px;
+  background-color: beige;
+}
+</style>
+
+    <!-- <i
+    mg onclick="schaar()" id="schaar" src="../papier.png" alt="papier">
+<img onclick="papier()" id="papier" src="../schaar.png" alt="schaar">
+<img onclick="steen()" id="steen" src="../steen.png" alt="steen"> -->
+  </body>
+</html>
